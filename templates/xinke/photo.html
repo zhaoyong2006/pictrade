@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/photo.css" />
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div class="main">
+ <div style="float:left;width:160px;border:1px #B2BE6D solid;">
+ <div class="nav_title">
+ <span>图片分类</span>
+ </div>
+ <ul class="nav_list">
+ 	<a href="photo.php"><li>全部图片</li></a>
+ 	<{foreach from=$photo_type item=k}>
+ 	 <a href="photo.php?type=<{$k.type_id}>"><li><{$k.type_name}></li></a>
+ 	<{/foreach}>
+
+ 
+ </ul>
+ </div>
+  <div class="photo_ar">
+ <ul>
+ 	<{foreach from=$photo_list item=k}>
+		 <li>
+		 	<div class="photo_list">
+		 	<a href="photo.php?action=buy&id=<{$k.photo_id}>"><img src="<{$k.photo_thum}>"/>
+		 	<span><{$k.photo_name}></span></a>
+			</div>
+		 </li>
+ 	<{/foreach}>
+ 	<!--
+ <li>
+ 	<div class="photo_list">
+ 	<a href="#"><img src="http://www.tpqq.com/newpic/20130508/1-13050PZ307-lp-p.jpg"/>
+ 	<span>科技大学最近图片</span></a>
+	</div>
+ </li>
+  <li>
+ 	<div class="photo_list">
+ 	<a href="#"><img src="http://www.tpqq.com/newpic/20130508/1-13050PZ307-lp-p.jpg"/>
+ 	<span>科技大学最近图片</span></a>
+	</div>
+ </li>
+  <li>
+ 	<div class="photo_list">
+ 	<a href="#"><img src="http://www.tpqq.com/newpic/20130508/1-13050PZ307-lp-p.jpg"/>
+ 	<span>科技大学最近图片</span></a>
+	</div>
+ </li>
+  <li>
+ 	<div class="photo_list">
+ 	<a href="#"><img src="http://www.tpqq.com/newpic/20130508/1-13050PZ307-lp-p.jpg"/>
+ 	<span>科技大学最近图片</span></a>
+	</div>
+ </li>
+  <li>
+ 	<div class="photo_list">
+ 	<a href="#"><img src="http://www.tpqq.com/newpic/20130508/1-13050PZ307-lp-p.jpg"/>
+ 	<span>科技大学最近图片</span></a>
+	</div>
+ </li>
+ -->
+ </ul>
+ </div>
+ </div>
+ <{include file="footer.html"}>
+ </body>
+ </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>日志列表</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+   <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/user.css" />
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div class="journal_list">
+ <span style="font-size: 15px;font-weight: bold;">我的日志列表</span><br/>
+ <{foreach from=$journal_list item=journal}>
+ <p><a href="journal.php?journal_id=<{$journal.journal_id}>"><{$journal.journal_title}><span style="color:red;">(<{$journal.comm_num}>条评论)</span></a><span>发表于<{$journal.journal_time}></span></p>
+ <{/foreach}>
+ </div>
+ <{include file="footer.html"}>
+ </body>
+ </html>

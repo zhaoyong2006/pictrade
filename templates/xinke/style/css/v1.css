@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+body{padding:0;margin:0; background:#F3F3F3;}
+body,a,td,th{font-size:12px;font-family:"微软雅黑";}
+img{border:0;}
+ul,li,p,h3{list-style:none;margin:0;padding:0;}
+.center {
+margin: 0 auto;
+}
+.main{width:980px;margin:0 auto;zoom:1;overflow:hidden;}
+.head{background:#FFF;border-bottom:1px solid #DDD;}
+.head .logo{float:left;}
+.head .menu{float:right;margin:0;padding:0;margin-top:18px;}
+.head .menu a{display:inline-block;color:#000;text-decoration:none;width:100px;height:39px;line-height:31px;text-align:center;font-size:14px;}
+.head .menu a.c{background:url(/templates/xinke/images/mbg.gif) no-repeat center;color:#FFF;}
+.head .top_mes{margin-left:740px;}
+/*文字*/
+#web h1 {
+font-size: 14px;
+color: #c00;
+height: 30px;
+line-height: 30px;
+border-bottom: 1px solid #ccc;
+width: 95%;
+}
+#web em {
+float: right;
+font-style: normal;
+font-weight: normal;
+}
+#web h1 span {
+color: #ccc;
+font-weight: normal;
+}
+#web em a {
+font-size: 12px;
+color: #005A98;
+text-decoration: none;
+background: url(../images/arrow.jpg) no-repeat;
+padding-left: 18px;
+}
+#web ul {
+width: 95%;
+margin: 0 auto;
+background: url(../images/dashed.gif) repeat-x bottom;
+padding-top: 5px;
+}
+#web ul li {
+height: 21px;
+line-height: 21px;
+overflow: hidden;
+}
+#web ul li a.b {
+color: #005A98;
+text-decoration: none;
+}
+/*底部*/
+.foot {
+margin-top: 10px;
+border-top: 1px solid #DDD;
+padding: 30px 0 40px 0;
+background-color: #FFF;
+}
+.foot p {
+text-align: center;
+margin-top: 10px;
+}

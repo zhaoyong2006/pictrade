@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>状态列表</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+   <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/user.css" />
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div class="member_list">
+ 	<h4>好友请求</h4>
+	<span><{$message.fri_name}>  想添加您为好友</span><br/>
+	附加信息：<br/>
+	<{$message.note}><br/><br/>
+	<a href="receive_par.php?action=notice_friend&do=yes&member_id=<{$message.uid}>&member_name=<{$message.fri_name}>&id=<{$message.id}>">[同意]</a>&nbsp;&nbsp;<a href="receive_par.php?action=notice_friend&do=no&id=<{$message.id}>">[忽略]</a>
+ </div>
+ <{include file="footer.html"}>
+ </body>
+ </html>

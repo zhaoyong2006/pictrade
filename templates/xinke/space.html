@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/user.css" />
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div class="main">
+	 <div class="left">
+	 <div class="my_head"><img width="200px" height="200px" src="<{if $user_info.member_photo != ''}><{$user_info.member_photo}><{else}>templates/xinke/images/noavatar_big.gif<{/if}>"></div>
+	 <div class="myinfo">
+	 <table>
+	 <tr><td>登录名:</td><td><{$user_info.member_username}></td></tr>
+	 <tr><td>昵称:</td><td><{$user_info.member_name}></td></tr>
+	 <tr><td>金币:</td><td><{$user_info.account}></td></tr>
+	 <tr><td>创建日期:</td><td><{$user_info.member_join_time}></td></tr>
+	 <tr><td>图片数量:</td><td><{$user_info.member_other}></td></tr>
+	 </table>
+	 </div>
+	 
+ </div>
+ <div class="center">
+ 	<div class="myname">
+ 		<span><{$user_info.member_name}></span>的个人空间
+ 	</div>
+ 	
+ 	<!--相册-->
+ 	<div class="xiangce">
+ 		<h3 class="feed_header">
+		<a href="cp.php?ac=profile" class="r_option">全部相册</a>
+		他的相册
+		</h3>
+		<ul>
+			<{foreach from=$albums_list item=k}>
+				<li><a href="photo.php?action=albums_photo&albums_id=<{$k.albums_id}>"><img src="<{$k.album_thum}>" width="120" height="100"/><br/><span style=" display:block;width:100px;text-align: center;"><{$k.albums_name}></span></a><br/></li>
+			<{/foreach}>
+		
+		</ul>
+ 	</div>
+ 	<!--好友动态-->
+ 	<div class="dongtai">
+ 		<h3 class="feed_header">
+		<a href="cp.php?ac=profile" class="r_option">全部动态</a>
+		他的最新动态
+		</h3>
+		<ul>
+			<{foreach from=$friend_status item=k}>
+			<li>发布状态：<br/><{$k.status_text}><br/><a href="status.php?status_id=<{$k.status_id}>">[回复]&nbsp;<span style="color:red;">(<{$k.comm_num}>条评论)</span></a>&nbsp;&nbsp;<{$k.status_time}></li>
+			<{/foreach}>
+	
+		</ul>
+ 	</div>
+ 	<!--日志-->
+ 	<div class="dongtai">
+ 		<h3 class="feed_header">
+		<a href="cp.php?ac=profile" class="r_option">全部动日志</a>
+		他的日志
+		</h3>
+		<ul>
+
+				<{foreach from=$friend_journal item=k}>
+				<li>发布日志：<br/><{$k.journal_title}><br/><a href="journal.php?journal_id=<{$k.journal_id}>">[回复]&nbsp;<span style="color:red;">(<{$k.comm_num}>条评论)</span></a>&nbsp;&nbsp;<{$k.journal_time}></li>
+				<{/foreach}>
+			
+		</ul>
+ 	</div>
+ 	<div class="liuyan">
+ 		<h3 class="feed_header">
+		<a href="cp.php?ac=profile" class="r_option">全部留言</a>
+		好友留言
+		</h3>
+		<ul>
+			<{foreach from=$message_list item=k}>
+				<li><a href="space.php?uid=<{$k.from_id}>"><{$k.member_username}></a>留言：<br/><{$k.info}><br/>留言时间：&nbsp;&nbsp;<{$k.dateline}></li>
+			<{/foreach}>
+		
+		</ul>
+		<form action="receive_par.php?action=message_ok" method="post">
+ 			<textarea rows="3" cols="50" name="info"></textarea><br/>
+ 			<input type="hidden" name="to_id" value="<{$user_info.member_id}>" />
+ 			<input type="submit" value="发表留言"/>
+ 		</form>
+ 	</div>
+ </div>
+ <div class="right">
+ 	<!--交易情况-->
+ 	
+ 	<!--好友-->
+ 	<div class="haoyou">
+		<h2 class="title">
+		<a href="space.php?uid=1&amp;do=friend&amp;view=visitor" class="r_option">全部</a>
+		他的好友
+		</h2>
+		<ul class="avatar_list">
+			<{foreach from=$fri_list item=k}>
+			<li>
+			<div class="avatar48"><a href="space.php?uid=<{$k.fuid}>"><img src="http://discuz.cn/uc_server/images/noavatar_small.gif" onerror="this.onerror=null;this.src='http://discuz.cn/uc_server/images/noavatar_small.gif'"></a></div>
+			<p><a href="space.php?uid=<{$k.fuid}>" title="<{$k.fusername}>"><{$k.fusername}></a></p>
+			<p class="gray">5月5日</p>
+			</li>
+			<{/foreach}>
+		</ul>
+		<div style="width:50px;">
+		
+		</div>
+	</div>
+ </div>
+ </div>
+ <{include file="footer.html"}>
+ </body>
+ </html>

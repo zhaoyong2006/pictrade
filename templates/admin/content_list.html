@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>新闻列表</title>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+</head>
+<body>
+<{include file="top.html"}>
+<table width="100%" cellpadding="0" cellspacing="0" >
+<tr>
+<td width="150" valign="top"><{include file="left.html"}></td>
+<td valign="top">
+<div class='title'>
+<a href="?action=add_news">添加新闻</a>
+&raquo;&nbsp;新闻公告</div>
+<{if $content_list}>
+
+<table cellspacing="0" cellpadding="0" width="100%">
+	<form action="?action=content&do=content_delete" method="post" name="content_list">
+	<input type="hidden" name="channel_id" value="" />
+	<{foreach from=$content_list item=content}>
+	<tr>
+	<td height="30" width="5%" align="center" nowrap="nowrap"><{$content.content_id}></td>
+	<td width="70%">
+	<a href="?action=content&do=content_edit&content_id=<{$content.content_id}>"><{$content.content_title}></a>
+
+
+
+	</td>
+
+	<td  width="15%" align="center" nowrap="nowrap"><{$content.content_time}></td>
+	<td></td>
+	<td><a href="?action=del_news&news_id=<{$content.content_id}>"  onclick="return confirm('确定要删除该新闻？')">删除</a></td>
+	</tr>
+	<tr><td height="1" bgcolor="#eeeeee" colspan="5"></td></tr>
+	<{/foreach}>
+	</form>
+
+
+	<td width="100">
+	
+
+	</td>
+	<td width="300">
+
+	
+	</td>
+	<td align="right"><!--{$pagebar}--></td>
+	</tr></table>
+	</td>
+	</tr>
+</table>
+<{else}>
+<div style="line-height:50px;text-align:center;"><!--{$language.nodata}--></div>
+<{/if}>
+</td>
+</tr>
+</table>
+</body>
+</html>

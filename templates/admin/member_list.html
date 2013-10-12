@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>会员管理</title>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+
+</head>
+<body>
+<{include file="top.html"}>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="150" valign="top"><{include file="left.html"}></td>
+<td valign="top">
+<div class='title'>
+
+&raquo;&nbsp;会员管理</div>
+	
+	<table cellspacing="1" cellpadding="0" width="100%">
+	<tr class="titlebg">
+	<td height="20" width="40" align="center">会员ID</td>
+	<td width="160" align="center">会员名</td>
+	<td width="80">会员邮箱</td>
+	<td width="80">会员真实姓名</td>
+	<td>会员帐户</td>
+	<td align="center">用户状态</td>
+	<td width="250" align="center">操作</td>
+	</tr>
+	<tr><td height="1" bgcolor="#eeeeee" colspan="10"></td></tr>
+	<{foreach from=$member_list item=k}>
+	<tr>
+	<td height="30" align="center"><{$k.member_id}></td>
+	<td align="center"><{$k.member_username}></td>
+	<td><{$k.member_mail}></td>
+	<td><span ><{$k.member_name}></span></td>
+	<td><{$k.account}></td>
+	<td align="center"><{if $k.member_state eq '0'}><span style="color:green">正常</span><{else}><span style="color:red">已锁定</span><{/if}></td>
+	<td align="center">
+	<{if $k.member_state eq '0'}><a href="?action=lock_member&member_id=<{$k.member_id}>" onclick="return confirm('确定要锁定该用户？')">锁定该用户</a><{else}><a href="?action=unlock_member&member_id=<{$k.member_id}>" onclick="return confirm('确定解锁该用户？')">解除锁定</a><{/if}>|
+	<a href="?action=del_member&member_id=<{$k.member_id}>" onclick="return confirm('确定要删除该用户？')">删除该用户</a>
+	
+	</td>
+	</tr>
+	<tr><td height="1" bgcolor="#eeeeee" colspan="7"></td></tr>
+	<{foreachelse}>
+	<tr><td height="50" colspan="7" align="center">暂时没有会员</td></tr>
+	<{/foreach}>
+	
+	</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

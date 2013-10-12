@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>状态列表</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+   <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/user.css" />
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div class="member_list">
+ 	<span style="font-size: 15px;font-weight: bold;">站点好友</span><br/>
+	<ul class="avatar_list">
+		<{foreach from=$mem_list item=k}>
+			<li>
+			<div class="avatar48"><a href="member.php?uid=<{$k.member_id}>"><img src="<{$k.member_photo}>" /></a></div>
+			<p><a href="member.php?uid=<{$k.member_id}>" title="<{$k.member_username}>"><{$k.member_username}></a></p>
+			<p class="gray"><a href="receive_par.php?action=add_fri&uid=<{$k.member_id}>">加为好友</a></p>
+			</li>
+		<{/foreach}>
+			
+		</ul>
+ </div>
+ <{include file="footer.html"}>
+ </body>
+ </html>

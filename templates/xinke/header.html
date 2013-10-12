@@ -1,0 +1,16 @@
+<div class="head">
+	<div class="main">
+        <a class="logo" href="/"><img src="images/logo.jpg" height="74px"/></a>
+        <{if $username eq ''}>
+        <p class="top_mes"><a href="reg.php">[注册]</a>&nbsp;&nbsp;<a href="login.php">[登录]</a></p>
+        <{else}>
+        <p class="top_mes"><{$username}>,欢迎您！<{if $notice_num != 0}><a href="receive_par.php?action=notice_friend"><span style="color:red;"> (<{$notice_num}>条新消息) </span></a><{/if}><a href="user.php?action=logout">[退出]</a></p>
+        <{/if}>
+        <p class="menu">
+        <a  target="_top" href="/">网站首页</a>
+        <a  target="_top" href="photo.php">图片分类</a> 
+        <a  target="_top" href="user.php">个人首页</a>  
+        <a  target="_top" href="photo.php?action=get_free">免费专区</a> 
+        <a  target="_top" href="content.php?id=5">关于本站</a>        </p>
+    </div>
+</div>

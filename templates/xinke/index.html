@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>基于SNS系统的图片交易网</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+  	<link rel="stylesheet" href="templates/xinke/style/css/lanrenzhijia.css"/>
+  	<link rel="stylesheet" href="templates/xinke/style/css/itp.css"/>
+	<script src="templates/xinke/style/js/jquery-latest.js"></script>
+	<script src="templates/xinke/style/js/jquery.cycle.all.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$('.slideshow').cycle({
+				fx: 'scrollLeft',
+				speed: 1000,
+				timeout: 7000
+			});
+
+		});
+		function submit(){
+			$("#search").submit();
+		}
+	</script>
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div id="top-zone">
+		<div id="billboard">		
+			<ul class="slideshow">
+				<li><img src="templates/xinke/images/lanrenzhijia.jpg" alt="懒人之家"/></li>
+				<li><img src="templates/xinke/images/lanrenzhijia2.jpg" alt="懒人之家"/></li>
+			</ul>
+			
+		</div>
+		
+		<div class="edge-holders">
+        </div>
+	</div>
+	<div style="position:absolute; top:150px; left:266px;z-index:999;">
+		图片搜索<br/>
+		<form id="search" action="photo.php?action=search" method="post">
+		<input name="keyword" id="keyword"  style="width:360px;height:25px;padding-top:6px;font-size:18px;float:left;background:#FFFFFF none repeat scroll 0 0;border-color:#B3ADA4;border-style:solid none solid solid;border-width:1px medium 1px 1px;" type="text" autocomplete="off">
+		<input type="image" src="templates/xinke/images/mh-search.png" onclick="javascript:submit();">
+		</form>
+	</div>
+<!--推荐图片-->
+<div class="contNews center">
+	<div class="contNewsT"></div>
+	<div class="contNewsC">
+		<ul>
+			<{foreach from=$photo_hot item=photo}>
+				<li>
+				<div class="worldpic"><a href="photo.php?action=buy&id=<{$photo.photo_id}>" target="_blank" title="<{$photo.photo_name}>"><img src="<{$photo.photo_thum}>" alt="<{$photo.photo_name}>" width="233" height="198"></a></div>
+				<div class="worldtitle">
+				  <table width="235" border="0" cellspacing="0" cellpadding="0">
+					<tbody><tr>
+					  <td height="7"></td>
+					</tr>
+					<tr>
+					  <td height="17">&nbsp;<a href="photo.php?action=buy&id=<{$photo.photo_id}>" target="_blank" title="<{$photo.photo_name}>"><{$photo.photo_name}></a></td>
+					</tr>
+					<tr>
+					  <td height="17">&nbsp;Time：<{$photo.photo_time}></td>
+					</tr>
+				  </tbody></table>
+				</div>
+				</li>
+				
+			<{/foreach}>
+			
+		</ul>
+	</div>
+</div>
+<!--最新图片-->
+<div class="contNews center">
+	<div class="contNewsT2"></div>
+	<div class="contNewsC">
+		<ul>
+			<{foreach from=$photo_new item=photo}>
+				<li>
+				<div class="worldpic"><a href="photo.php?action=buy&id=<{$photo.photo_id}>" target="_blank" title="<{$photo.photo_name}>"><img src="<{$photo.photo_thum}>" alt="<{$photo.photo_name}>" width="233" height="198"></a></div>
+				<div class="worldtitle">
+				  <table width="235" border="0" cellspacing="0" cellpadding="0">
+					<tbody><tr>
+					  <td height="7"></td>
+					</tr>
+					<tr>
+					  <td height="17">&nbsp;<a href="photo.php?action=buy&id=<{$photo.photo_id}>" target="_blank" title="<{$photo.photo_name}>"><{$photo.photo_name}></a></td>
+					</tr>
+					<tr>
+					  <td height="17">&nbsp;Time：<{$photo.photo_time}></td>
+					</tr>
+				  </tbody></table>
+				</div>
+				</li>
+			<{/foreach}>
+			
+
+
+		</ul>
+	</div>
+</div>
+<!--最新相册，活跃会员-->
+<div class="contNews center">
+	<div id="web" style="float:left;width:320px;height:300px;">
+		<h1>站点公告 <span>│</span></h1>
+		<ul>
+		<{foreach from=$news item=new}>
+			<li>· <a href="content.php?id=<{$new.content_id}>" target="_blank" class="b"><{$new.content_title}></a></li>
+		<{/foreach}>
+         
+      </ul>
+	</div>
+	<div id="web" style="float:left;width:320px;height:300px;">
+		<h1>热门日志<span>│</span></h1>
+		<ul>
+		<{foreach from=$hot_jour item=k}>
+			<li>· <a href="journal.php?journal_id=<{$k.journal_id}>" target="_blank" class="b"><{$k.journal_title}></a></li>
+		<{/foreach}>
+         
+      </ul>
+	</div>
+	<div id="web" style="float:left;width:320px;height:300px;">
+		<h1>活跃用户 <span>│</span></h1>
+		<ul>
+		<{foreach from=$hot_member item=k}>
+			<li>· <a href="space.php?uid=<{$k.member_id}>" target="_blank" class="b"><{$k.member_username}></a></li>
+		<{/foreach}>
+         
+      </ul>
+	</div>
+
+
+</div>
+ <{include file="footer.html"}>
+ </body>
+</html>

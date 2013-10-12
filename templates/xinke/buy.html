@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/buy.css" />
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div class="main">
+ <div class="left_pic">
+ 	缩略图：<br/>
+ 	<img src="<{$photo.photo_thum}>"/>
+ </div>
+ <div class="right_pic">
+ 	<span>照 片 名：<{$photo.photo_name}></span><br/>
+ 	<span>照片作者：<a href="space.php?uid=<{$photo.member_id}>" target="_blank"><{$photo.username}></a></span><br/>
+ 	<span>照片描述：<{$photo.photo_depict}></span><br/>
+ 	<span>购买者评价：<b><{$eval_list.evaluate}>星</b> （<{$eval_list.eva_num}>人评价）</span>
+	<form action="photo.php?action=buy_ok" method="post">
+	选择您要购买图片大小：<br/><br/>
+	<input type="radio" name="photo_size" value="1" checked="checked"><b>原图</b>(价格：<{$photo.photo_price}>金币)<br/><br/>
+	<input type="radio" name="photo_size" value="2"><b>原图小图</b>(价格：<{($photo.photo_price*(3/4))|round:0}>金币)<br/><br/>
+	<input type="hidden" name="id" value="<{$photo.photo_id}>"/>
+	<input type="submit" value="<{if $member_id eq $photo.member_id}>点击获取<{else}>购买<{/if}>"/> &nbsp;&nbsp;
+	<{if $member_id neq $photo.member_id}><a href="photo.php?action=evaluate&photo_id=<{$photo.photo_id}>" target="_blank">[已经购买，评价该图]</a><{/if}>
+	</form>
+ </div><br/>
+ <div style="width:800px;">
+ 	<h3>评论列表</h3><br/>
+ <{foreach from=$comm_list item=k}>
+ &nbsp;&nbsp;&nbsp;&nbsp;<span><{$k.note}>-----------From: <a href="space.php?uid=<{$k.from_id}>"><{$k.member_username}></a>&nbsp;&nbsp;Time:<{$k.dateline}></span><br/><br/>
+ <{/foreach}>
+ </div>
+ </div>
+ <{include file="footer.html"}>
+ </body>
+ </html>

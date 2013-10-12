@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.left_pic{
+	float:left;
+	padding:50px 120px;
+	width:260px;
+	height:200px;
+	border:1px solid;
+}
+.right_pic{
+	float:left;
+	padding:60px 100px;
+	width:250px;
+	height:180px;
+	border:1px solid;
+}

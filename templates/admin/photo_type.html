@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>图片管理</title>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+
+</head>
+<body>
+<{include file="top.html"}>
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="150" valign="top"><{include file="left.html"}></td>
+<td valign="top">
+<div class='title'>
+<a href="?action=game&do=paymode_list">图片管理</a>
+&raquo;&nbsp;图片类型管理</div>
+	
+	<table cellspacing="1" cellpadding="0" width="40%">
+	<tr class="titlebg">
+	<td height="20" width="40" align="center">类型ID</td>
+	<td width="160" align="center">类型名</td>
+	<td width="300">类型描述</td>
+	<td></td>
+	</tr>
+	<tr><td height="1" bgcolor="#eeeeee" colspan="10"></td></tr>
+	<{foreach from=$photo_type item=k}>
+	<tr>
+	<td height="30" align="center"><{$k.type_id}></td>
+	<td align="center"><{$k.type_name}></td>
+	<td><{$k.type_depict}></td>
+	<td></td>
+	</tr>
+	<tr><td height="1" bgcolor="#eeeeee" colspan="10"></td></tr>
+	<{/foreach}>
+	<tr>
+	<form action="admin.php?action=type_add" method="post">
+	<td height="30" align="center"></td>
+	<td align="center"><input type="text" name="type_name" /></td>
+	<td><input type="text" name="type_depict" size="30"/></td>
+	<td><input type="submit" value="添加类型"/></td>
+	</form>
+	</tr>
+	<tr><td height="1" bgcolor="#eeeeee" colspan="10"></td></tr>
+	
+	</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

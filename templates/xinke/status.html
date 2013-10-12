@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/buy.css" />
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div class="main">
+ <span><b>状态</b></span><br/>
+ <{$status.status_time}><br/>
+ <{$status.status_text}><br/><br/>
+ <b>评论</b><br/>
+ <{foreach from=$status_comm item=k}>
+  <span><{$k.note}> --from <a href="space.php?uid=<{$k.from_id}>"><{$k.member_username}></a> <{$k.dateline}></span><br/>
+ <{/foreach}>
+
+ <form action="status.php?action=reply_ok" method="post">
+ <textarea rows="3" cols="50" name="info"></textarea><br/>
+ 	<input type="hidden" name="status_id" value="<{$status.status_id}>" />
+ 	<input type="submit" value="发表评论"/>
+ </form>
+ </div>
+ <{include file="footer.html"}>
+ </body>
+ </html>

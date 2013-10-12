@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/v1.css" />
+  <link rel="stylesheet" type="text/css" href="templates/xinke/style/css/buy.css" />
+   <link rel="stylesheet" href="templates/xinke/style/css/itp.css"/>
+ </head>
+ <body>
+ <{include file="header.html"}>
+ <div class="main">
+ <form action="photo.php?action=evaluate_ok" method="post">
+ <h3>请对您购买的图片进行评价</h3><br/><br/>
+ <b>给该张图片打分</b><br/>
+ <input type="radio" name="grade" value="1">1分
+<input type="radio" name="grade" value="2">2分
+<input type="radio" name="grade" value="3">3分
+<input type="radio" name="grade" value="4">4分
+<input type="radio" name="grade" value="5">5分
+<input type="radio" name="grade" value="6">6分
+<input type="radio" name="grade" value="7">7分
+<input type="radio" name="grade" value="8">8分		
+<input type="radio" name="grade" value="9">9分
+<input type="radio" name="grade" value="10">10分
+<br/><br/>
+<input type="hidden" name="photo_id" value="<{$photo_id}>" />
+<b>给该张图片评论</b><br/>
+<textarea rows="3" cols="50" name="eval_note"></textarea><br/>
+<input type="submit" value="确认评价"/>
+</div>
+
+ <{include file="footer.html"}>
+ </body>
+ </html>
